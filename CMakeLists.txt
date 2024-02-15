@@ -24,6 +24,7 @@ find_package(sdl REQUIRED)
 #target_link_libraries(mojoal ${SDL2_LIBRARIES})
 
 add_library(mojoal.mojoal STATIC ${CMAKE_CURRENT_SOURCE_DIR}/mojoal.c)
+add_library(mojoal::mojoal ALIAS mojoal.mojoal)
 target_include_directories(mojoal.mojoal PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/AL>)
 target_link_libraries(mojoal.mojoal PRIVATE sdl2.SDL2-static)
 target_compile_definitions(mojoal.mojoal PUBLIC AL_LIBTYPE_STATIC)
